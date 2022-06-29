@@ -1,23 +1,23 @@
 class PostsController < ApplicationController
 
-  def show
-    post = Post.find(params[:id])
-    
-    render json: post
-  end
+	def show
+		post = Post.find(params[:id])
 
-  def update
-    post = Post.find(params[:id])
+		render json: post
+	end
 
-    post.update(post_params)
+	def update
+		post = Post.find(params[:id])
 
-    render json: post
-  end
+		post.update!(post_params)
 
-  private
+		render json: post
+	end
 
-  def post_params
-    params.permit(:category, :content, :title)
-  end
+	private
+
+	def post_params
+		params.permit(:category, :content, :title)
+	end
 
 end
